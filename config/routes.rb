@@ -1,4 +1,7 @@
 Rjob::Application.routes.draw do
+  resources :comments
+
+
   resources :job_posts
 
 
