@@ -1,4 +1,7 @@
 Rjob::Application.routes.draw do
+  resources :job_posts
+
+
   authenticated :user do
     root :to => 'home#index'
   end
