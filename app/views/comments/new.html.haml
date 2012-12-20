@@ -1,5 +1,12 @@
 %h1 New comment
 
+%p
+  %b Title:
+  = @job_post.title
+%p
+  %b Url:
+  = @job_post.url
+
 = render 'form'
 
 = link_to 'Back', comments_path

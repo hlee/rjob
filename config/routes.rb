@@ -2,7 +2,9 @@ Rjob::Application.routes.draw do
   resources :comments
 
 
-  resources :job_posts
+  resources :job_posts do
+    resources :comments
+  end
 
 
   authenticated :user do
