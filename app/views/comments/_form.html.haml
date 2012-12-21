@@ -9,5 +9,6 @@
   .field
     = f.label :content
     = f.text_area :content
+  = f.hidden_field :job_post_id, value: @comment.job_post_id
   .actions
     = f.submit 'Save'
