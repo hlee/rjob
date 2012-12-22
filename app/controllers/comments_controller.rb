@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_filter :authenticate_user!, only: :new
   # GET /comments
   # GET /comments.json
   def index
@@ -26,7 +27,7 @@ class CommentsController < ApplicationController
   def new
     #@comment = Comment.new
     @job_post = JobPost.find_by_id params[:job_post_id]
-    @comment = @job_post.comments.build
+    @comment = @job_post.comments.build(user_id: current_user.id)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,7 +47,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to job_posts_path, notice: 'Comment was successfully created.' }
         format.json { render json: @comment, status: :created, location: @comment }
       else
         format.html { render action: "new" }

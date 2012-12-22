@@ -20,7 +20,8 @@
       %td= link_to 'Destroy', job_post, method: :delete, data: { confirm: 'Are you sure?' }
       %td= link_to 'New Comment', new_job_post_comment_path(job_post)
     %tr
-      = render partial: 'comment', conllection: job_post.comments
+      %td= 'comment'
+      %td= render partial: 'comment', collection: job_post.comments
 
 %br
 
